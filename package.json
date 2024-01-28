@@ -1,0 +1,27 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Study Backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dangayaudio/Study-NodeJS.git"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "Dang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dangayaudio/Study-NodeJS/issues"
+  },
+  "homepage": "https://github.com/dangayaudio/Study-NodeJS#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
