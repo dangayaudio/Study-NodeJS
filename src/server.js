@@ -18,17 +18,6 @@ configViewEngine(app);
 //khai báo route
 app.use('/', webRoutes);
 
-//create database
-
-
-//simple query
-// connection.query(
-//     'select * from Users u',
-//     function (err, results, fields) {
-//         console.log("check results:", results);
-//     }
-// )
-
 
 app.listen(port, hostmane, () => {
     console.log(`Example app listening on port ${port}`)
