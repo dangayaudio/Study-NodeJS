@@ -12,69 +12,60 @@
         <a class="active" href="/">Home</a>
         <a href="/create">Create Users</a>
     </div>
-    <!-- <div class="from-add-new">
-        <form action="/create-user" method="post">
-            <fieldset>
-                <legend>Add new user</legend>
 
-                <div class="input-group">
-                    <label>Email: </label>
-                    <input type="text" name="email" />
-                </div>
-                <div class="input-group">
-                    <label>Name: </label>
-                    <input type="text" name="name" />
-                </div>
-                <div class="input-group">
-                    <label>City: </label>
-                    <input type="text" name="city" />
-                </div>
-                <div>
-                    <button> Save </button>
-                </div>
-            </fieldset>
-        </form>
-    </div> -->
     <div class="table-contain">
-        <%= JSON.stringify(listUsers) %>
-            <div class="title"> List Users</div>
-            <table>
+        <!-- <%= JSON.stringify(listUsers) %> -->
+        <div class="title"> List Users</div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+
+            <!-- <% for (let i=0; i < listUsers.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= listUsers[i].id %>
+                        </td>
+                        <td>
+                            <%= listUsers[i].email %>
+                        </td>
+                        <td>
+                            <%= listUsers[i].name%>
+                        </td>
+                        <td>
+                            <%= listUsers[i].city%>
+                        </td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                    <% } %> -->
+            <% listUsers.forEach(function(user) { %>
                 <tr>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Nam</th>
-                    <th>City</th>
-                    <th>Actions</th>
-                </tr>
-                <tr>
-                    <td>Peter</td>
-                    <td>Griffin</td>
-                    <td>$100</td>
-                    <td>$100</td>
                     <td>
-                        <button>Edit</button>
+                        <%= user.id %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.city %>
+                    </td>
+                    <td>
+                        <a href="/update/<%= user.id %>">Edit</a>
                         <button>Delete</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>Lois</td>
-                    <td>Griffin</td>
-                    <td>$150</td>
-                    <td>$150</td>
-                </tr>
-                <tr>
-                    <td>Joe</td>
-                    <td>Swanson</td>
-                    <td>$300</td>
-                    <td>$300</td>
-                </tr>
-                <tr>
-                    <td>Cleveland</td>
-                    <td>Brown</td>
-                    <td>$250</td>
-                    <td>$250</td>
-                </tr>
-            </table>
+                <% }); %>
+        </table>
     </div>
 </body>
 
