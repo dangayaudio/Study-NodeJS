@@ -16,9 +16,11 @@ const postCreateUser = async (req, res) => {
     let name = req.body.name;
     let city = req.body.city;
     let [results, fileds] = await connection.query(
-        `INSERT INTO Users(email, name, city) VALUES(?, ?, ?)`,
+        `INSERT INTO Users(email, name, city) 
+        VALUES(?, ?, ?)`,
         [email, name, city])
-    res.send('Created user succeed');
+    //res.send('Created user succeed');
+    res.redirect('/');
 }
 
 const getCreatePage = (req, res) => {
@@ -38,9 +40,8 @@ const postUpdateUser = async (req, res) => {
     let city = req.body.city;
     let userId = req.body.userId;
 
-    // console.log('email = ', email, 'name = ', name, 'city = ', city, 'userId = ', userId)
     await updateUserById(email, name, city, userId);
-    // res.send('Update user succeed!');
+
     res.redirect('/');
 }
 
