@@ -3,6 +3,7 @@ const express = require('express');
 const configViewEngine = require('./config/viewEngine')
 const webRoutes = require('./route/web')
 const connection = require('./config/database')
+const Kitten = require('./model/Kitten');
 
 const app = express()
 const port = process.env.PORT || 8888;
@@ -18,7 +19,19 @@ configViewEngine(app);
 //khai báo route
 app.use('/', webRoutes);
 
+//shape data
+const cat = new Kitten({ name: 'model' });
+cat.save();
 
-app.listen(port, hostmane, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+//test conection
+(async () => {
+    try {
+        await connection();
+        app.listen(port, hostmane, () => {
+            console.log(`Backend zero app listening on port ${port}`)
+        })
+    } catch (error) {
+        console.log('Error conect to DB: ', error);
+    }
+})();
+
