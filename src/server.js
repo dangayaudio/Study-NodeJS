@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const configViewEngine = require('./config/viewEngine')
 const webRoutes = require('./route/web')
+const apiRoutes = require('./route/api');
 const connection = require('./config/database')
 
 const app = express()
@@ -17,6 +18,7 @@ configViewEngine(app);
 
 //khai báo route
 app.use('/', webRoutes);
+app.use('/v1/api', apiRoutes);
 
 //test conection
 (async () => {
