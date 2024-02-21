@@ -36,7 +36,6 @@ const getUpdatePage = async (req, res) => {
 const postUpdateUser = async (req, res) => {
     let { email, name, city, userId } = req.body;
 
-    // await updateUserById(email, name, city, userId);
     await User.updateOne(
         { _id: userId },
         { email: email, name: name, city: city }
