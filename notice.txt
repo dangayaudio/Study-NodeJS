@@ -1,2 +1,6 @@
 res.redirect('/'); hàm trả về link sau khi applied
 display: none; ẩn type trên html
+
+riAczjiTgScpgfMF
+
+mongodb+srv://root:riAczjiTgScpgfMF@cluster0.vw39ivv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

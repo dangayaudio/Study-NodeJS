@@ -49,7 +49,7 @@ app.use('/v1/api', apiRoutes);
 
         //
         let a = await collection.findOne({ name: 'dang' });
-        console.log('find = ', a);
+        //console.log('find = ', a);
 
         //
         app.listen(port, hostmane, () => {

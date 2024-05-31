@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 
-
+//shape data
 const userSchema = new mongoose.Schema({
-    email: String,
     name: String,
-    city: String
+    email: String,
+    city: String,
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('user', userSchema);
 
 module.exports = User;
-
