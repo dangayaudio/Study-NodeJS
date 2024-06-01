@@ -6,10 +6,12 @@ const apiRoutes = require('./route/api');
 const connection = require('./config/database')
 const fileUpload = require('express-fileupload')
 const { MongoClient } = require('mongodb');
+const mongoose = require('mongoose');
 
 const app = express()
 const port = process.env.PORT || 8888;
 const hostmane = process.env.HOST_NAME;
+const url = process.env.DB_HOST;
 
 //config fileupload
 app.use(fileUpload());
@@ -33,26 +35,26 @@ app.use('/v1/api', apiRoutes);
 
         //using mongodb driver
         // Connection URL
-        const url = process.env.DB_HOST_WITH_DRIVER;
-        const client = new MongoClient(url);
+        // const url = process.env.DB_HOST;
+        // const client = new MongoClient(url);
 
         // Database Name
-        const dbName = process.env.DB_NAME;
+        // const dbName = process.env.DB_NAME;
 
 
-        await client.connect();
-        console.log('Connected successfully to server');
-        const db = client.db(dbName);
-        const collection = db.collection('customers');
+        // await client.connect();
+        // console.log('Connected successfully to server');
+        // const db = client.db(dbName);
+        // const collection = db.collection('customers');
 
 
+
+        // //
+        // let a = await collection.findOne({ name: 'dang' });
+        // //console.log('find = ', a);
 
         //
-        let a = await collection.findOne({ name: 'dang' });
-        //console.log('find = ', a);
-
-        //
-        app.listen(port, hostmane, () => {
+        app.listen(port, hostmane, url, () => {
             console.log(`Backend zero app listening on port ${port}`)
         })
     } catch (error) {
